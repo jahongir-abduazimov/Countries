@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- css file -->
+        <link rel="stylesheet" href="./styles/output.css" />
+        <link rel="stylesheet" href="./styles/index.css">
+
+        <!-- Bootstrap icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <header class="fixed w-full z-10 h-[80px] bg-[#fff] border-b-[1px] border-b-[#0000000E] flex items-center shadow-md">
+            <div class="container">
+                <div class="flex justify-between items-center">
+                    <p class="font-extrabold text-[24px]">Where in the world?</p>
+                    <button class="flex items-center font-semibold text-[#000] gap-[8px]">
+                        <span><i class="bi bi-moon"></i></span>
+                        <span>Dark Mode</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <section class="pt-[128px] pb-[48px]">
+            <div class="container">
+                <div class="flex justify-between mb-[48px]">
+                    <div class="relative max-w-[480px] h-[56px] rounded-lg shadow-[0px_2px_5px_1px_silver] focus:shadow-[0px_5px_15px_1px_silver] items-center">
+                        <span class="absolute left-5 top-4 text-[#848484]">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input id="search-input" class="outline-none w-[480px] rounded-lg pl-[52px]  h-full" type="text" placeholder="Search for a country…">
+                    </div>
+                    <select class="shadow-[0px_2px_5px_1px_silver] px-3 rounded-md" id="region">
+                        <option value="" disabled selected>Filter by Region</option>
+                        <option value="africa">Africa</option>
+                        <option value="america">America</option>
+                        <option value="asia">Asia</option>
+                        <option value="europe">Europe</option>
+                        <option value="oceania">Oceania</option>
+                    </select>
+                </div>
+
+                <div class="flags-wrapper justify-center flex flex-wrap gap-[70px]">
+                    
+                </div>
+            </div>
+        </section>
+    </body>
+    <script src="./utilis.js"></script>
+    <script src="./index.js"></script>
+</html>
