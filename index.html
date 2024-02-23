@@ -16,25 +16,24 @@
         <header class="fixed w-full z-10 h-[80px] bg-[#fff] border-b-[1px] border-b-[#0000000E] flex items-center shadow-md">
             <div class="container">
                 <div class="flex justify-between items-center">
-                    <p class="font-extrabold text-[24px]">Where in the world?</p>
-                    <button class="flex items-center font-semibold text-[#000] gap-[8px]">
-                        <span><i class="bi bi-moon"></i></span>
-                        <span>Dark Mode</span>
+                    <p class="font-extrabold text-[20px] md:text-[24px]">Where in the world?</p>
+                    <button id="dark-btn" class="flex items-center text-[12px] font-semibold text-[#000] gap-[8px] md:text-[16px]">
+                        
                     </button>
                 </div>
             </div>
         </header>
 
-        <section class="pt-[128px] pb-[48px]">
+        <section class="pt-[104px] pb-[48px] md:pt-[128px]">
             <div class="container">
-                <div class="flex justify-between mb-[48px]">
-                    <div class="relative max-w-[480px] h-[56px] rounded-lg shadow-[0px_2px_5px_1px_silver] focus:shadow-[0px_5px_15px_1px_silver] items-center">
+                <div class="flex flex-col gap-y-10 mb-[48px] md:flex-row md:justify-between">
+                    <div class="input-wrapper relative w-full h-[56px] rounded-lg shadow-[0px_2px_5px_1px_silver] items-center md:w-[480px]">
                         <span class="absolute left-5 top-4 text-[#848484]">
                             <i class="bi bi-search"></i>
                         </span>
-                        <input id="search-input" class="outline-none w-[480px] rounded-lg pl-[52px]  h-full" type="text" placeholder="Search for a country…">
+                        <input id="search-input" class="outline-none w-full rounded-lg pl-[52px]  h-full" type="text" placeholder="Search for a country…">
                     </div>
-                    <select class="outline-none shadow-[0px_2px_5px_1px_silver] px-3 rounded-md" id="region">
+                    <select class="outline-none shadow-[0px_2px_5px_1px_silver] px-4 rounded-md max-w-[200px] py-3" id="region">
                         <option value="" disabled selected>Filter by Region</option>
                         <option value="africa">Africa</option>
                         <option value="americas">America</option>

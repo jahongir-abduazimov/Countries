@@ -3,12 +3,14 @@
 let flagsWrapper = $('.flags-wrapper');
 let inputSearch = $('#search-input')
 let regions = $('#region');
+let darkMode = $('#dark-btn');
+let body = $('body');
 
 
 let baseURL = "https://restcountries.com/v2"
 
 
-const getPosts = async (reqURL) => {
+const getPosts = async () => {
     flagsWrapper.innerHTML = "<span class='loader'></span>";
     try {
         const response = await fetch(`${baseURL}/all`);
@@ -53,7 +55,7 @@ function renderAllFlags(flagsList) {
 }
 
 
-
+// ---------------- Search Input Function ---------------------------
 
 async function searchCountries(searchTerm) {
     flagsWrapper.innerHTML = "<span class='loader'></span>";
@@ -67,9 +69,6 @@ async function searchCountries(searchTerm) {
     }
 }
 
-
-
-
 inputSearch.addEventListener('keyup', (e) => {
 
     if (e.keyCode == 13 && e.target.value.trim().length) {
@@ -78,6 +77,8 @@ inputSearch.addEventListener('keyup', (e) => {
 
 })
 
+
+// --------------- Filter Regions Function ------------------
 
 async function filterRegions(searchTerm) {
     flagsWrapper.innerHTML = "<span class='loader'></span>";
@@ -95,3 +96,36 @@ regions.addEventListener('change', (e) => {
     filterRegions(e.target.value)
 })
 
+
+// ------------- Dark Mode Function--------------------
+
+function darkLightMode() {
+    body.classList.toggle('dark-mode')
+
+    if (body.classList.contains('dark-mode')) {
+        darkMode.innerHTML = "<i class='bi bi-brightness-high'></i><span>Light Mode</span>"
+        localStorage.setItem('dark-mode', true)
+    } else {
+        darkMode.innerHTML = "<i class='bi bi-moon'></i><span>Dark Mode</span>"
+        localStorage.setItem('dark-mode', false)
+    }
+}
+
+function localDarkMode() {
+    
+    let isDark = localStorage.getItem('dark-mode')
+
+    if (isDark == 'true') {
+        darkMode.innerHTML = "<i class='bi bi-brightness-high'></i><span>Light Mode</span>"
+        body.classList.add('dark-mode')
+    } else {
+        darkMode.innerHTML = "<i class='bi bi-moon'></i><span>Dark Mode</span>"
+        body.classList.remove('dark-mode')
+    }
+}
+
+localDarkMode()
+
+darkMode.addEventListener('click', () => {
+    darkLightMode()
+})
