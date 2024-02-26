@@ -26,7 +26,7 @@ function renderCountry(el) {
     <div class="mb-[30px] flex justify-center items-center">
         <img class="w-full md:max-w-[560px]" src="${el.flag}" alt="img">
     </div>
-    <div class="max-w-[600px]">
+    <div class="w-full md:w-[550px]">
         <p class="font-extrabold text-[32px] pb-5">${el.name}</p>
         <div class="md:flex md:justify-between">
             <div class="flex flex-col gap-2 mb-5">
