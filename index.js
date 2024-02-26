@@ -38,15 +38,17 @@ function renderAllFlags(flagsList) {
                 <div class="h-[160px] flex items-center justify-center bg-[url(${el.flag})] bg-center bg-no-repeat bg-cover">
                     
                 </div>
-                <div class="h-[176px] p-6">
+                <div class="card-body h-[176px] p-6">
                     <h3 class="font-extrabold text-[18px] mb-3">${el.name}</h3>
-                    <p class=""><strong>Population:</strong> ${el.population}</p>
-                    <p><strong>Region:</strong> ${el.region}</p>
-                    <p><strong>Capital:</strong> ${el.capital}</p>
+                    <p>Population: ${el.population}</p>
+                    <p>Region: ${el.region}</p>
+                    <p>Capital: ${el.capital}</p>
                 </div>
           
             `
             );
+
+            card.dataset.country = el.name;
             flagsWrapper.appendChild(card);
         })
     } else {
@@ -65,6 +67,8 @@ async function searchCountries(searchTerm) {
         flagsWrapper.innerHTML = ""
         renderAllFlags(result);
     } catch (e) {
+
+        card.dataset.country = el.name;
         flagsWrapper.innerHTML = `<h1>${e.message}</h1>`;
     }
 }
@@ -128,4 +132,17 @@ localDarkMode()
 
 darkMode.addEventListener('click', () => {
     darkLightMode()
+})
+
+
+
+flagsWrapper.addEventListener('click', (e) => {
+    if (e.target.parentNode.classList.contains("card") || e.target.parentNode.classList.contains("card-body")) {
+        let data = e.target.parentNode.getAttribute('data-country')
+        localStorage.setItem('data-country', data)
+
+        if (localStorage.getItem('data-country')) {
+            window.location.href = './country.html'
+        }
+    }
 })
